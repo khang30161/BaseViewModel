@@ -22,11 +22,11 @@ public class MainViewModel extends BaseViewModel {
     }
 
     // ... EventchangeTextEvent
-    public void changeTextEvent(){
+    public void changeTextEvent() {
         mChangeTextEvent.call();
     }
 
-    public void onChangeText (){
+    public void onChangeText() {
         mStartProgressEvent.call();
         tvHello.set("12354");
     }
