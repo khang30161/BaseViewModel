@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">NewPro</string>
+    <string name="main_label">Main</string>
+    <string name="detail_label">Detail</string>
+
+    <!--Main Text-->
+    <string name="main_change_text">Change Text</string>
+    <string name="main_change_text_and_call_activity">Change Text And Call Activity</string>
+    <string name="main_go_to_version">Go To Version</string>
+
+    <!-- Version Fragment -->
+    <string name="version_text">Version</string>
 </resources>

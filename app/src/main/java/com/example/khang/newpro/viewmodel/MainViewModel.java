@@ -7,6 +7,8 @@ import com.example.khang.newpro.activity.DetailActivity;
 import com.example.khang.newpro.base.BaseActivity;
 import com.example.khang.newpro.base.BaseViewModel;
 import com.example.khang.newpro.base.SingleLiveEvent;
+import com.example.khang.newpro.enums.DetailType;
+import com.example.khang.newpro.utils.DetailActivityUtils;
 
 public class MainViewModel extends BaseViewModel {
 
@@ -14,7 +16,7 @@ public class MainViewModel extends BaseViewModel {
 
     private SingleLiveEvent<Void> mStartProgressEvent = new SingleLiveEvent<>();
 
-    private SingleLiveEvent<Void> mStartDetailActivityEvent = new SingleLiveEvent<>();
+    private SingleLiveEvent<Void> mStartVersionDetailActivityEvent = new SingleLiveEvent<>();
 
     public ObservableField<String> tvHello = new ObservableField<>();
 
@@ -26,8 +28,8 @@ public class MainViewModel extends BaseViewModel {
         return mStartProgressEvent;
     }
 
-    public SingleLiveEvent<Void> getStartDetailActivityEvent() {
-        return mStartDetailActivityEvent;
+    public SingleLiveEvent<Void> getStartVersionDetailActivityEvent() {
+        return mStartVersionDetailActivityEvent;
     }
 
     /**
@@ -54,11 +56,11 @@ public class MainViewModel extends BaseViewModel {
     /**
      * View (xml) call to ViewModel And Call Event To Main Activity
      */
-    public void startDetailActivityEvent() {
-        mStartDetailActivityEvent.call();
+    public void startVersionDetailActivityEvent() {
+        mStartVersionDetailActivityEvent.call();
     }
 
-    public void onStartDetailActivity(BaseActivity baseActivity) {
-        baseActivity.startActivity(new Intent(baseActivity, DetailActivity.class));
+    public void onStartVersionDetailActivity(BaseActivity baseActivity) {
+        DetailActivityUtils.startDetailActivity(baseActivity, DetailType.VERSION_APP_DETAIL, null, false, null);
     }
 }

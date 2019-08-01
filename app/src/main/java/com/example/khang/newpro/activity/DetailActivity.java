@@ -35,6 +35,6 @@ public class DetailActivity extends BaseActivity {
 
     @Override
     protected void setupData() {
-
+        detailViewModel.replaceFragments(this);
     }
 }

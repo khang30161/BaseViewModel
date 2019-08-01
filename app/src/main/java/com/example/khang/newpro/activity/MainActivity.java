@@ -48,8 +48,8 @@ public class MainActivity extends BaseActivity {
 
         });
 
-        mainViewModel.getStartDetailActivityEvent().observe(this, aVoid -> {
-            mainViewModel.onStartDetailActivity(this);
+        mainViewModel.getStartVersionDetailActivityEvent().observe(this, aVoid -> {
+            mainViewModel.onStartVersionDetailActivity(this);
         });
     }
 }

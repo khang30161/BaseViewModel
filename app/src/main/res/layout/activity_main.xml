@@ -47,19 +47,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:onClick="@{()->mainViewModel.changeTextAndCallActivityEvent()}"
-                android:text="Change Text And Call Activity" />
+                android:text="@string/main_change_text_and_call_activity" />
 
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:onClick="@{()->mainViewModel.changeTextEvent()}"
-                android:text="Change Text" />
+                android:text="@string/main_change_text" />
 
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:onClick="@{()->mainViewModel.startDetailActivityEvent()}"
-                android:text="Go To Detail Activity" />
+                android:onClick="@{()->mainViewModel.startVersionDetailActivityEvent()}"
+                android:text="@string/main_go_to_version" />
         </LinearLayout>
     </RelativeLayout>
 </layout>
