@@ -13,11 +13,18 @@ public class MainActivity extends BaseActivity {
     private ActivityMainBinding activityMainBinding;
     private MainViewModel mainViewModel;
 
+    /**
+     * config bindView bind to layout
+     */
     @Override
     protected void bindView() {
         activityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
     }
 
+    /**
+     * config ViewModel
+     * binding ViewModel
+     */
     @Override
     protected void setupViewModel() {
         if (mainViewModel == null) {
@@ -26,14 +33,23 @@ public class MainActivity extends BaseActivity {
         }
     }
 
+    /**
+     * config ComeBack ViewModel to Activity
+     */
     @Override
     protected void setupData() {
         activityMainBinding.tvChangeInActivity.setText("Ahihihi");
-        mainViewModel.getChangeTextEvent().observe(this, aVoid -> {
+
+        mainViewModel.getChangeTextAndCallActivityEvent().observe(this, aVoid -> {
             mainViewModel.onChangeText();
         });
+
         mainViewModel.getStartProgressEvent().observe(this, aVoid -> {
 
+        });
+
+        mainViewModel.getStartDetailActivityEvent().observe(this, aVoid -> {
+            mainViewModel.onStartDetailActivity(this);
         });
     }
 }
