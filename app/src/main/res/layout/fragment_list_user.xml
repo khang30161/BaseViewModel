@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="listUserViewModel"
+            type="com.example.khang.newpro.viewmodel.ListUserFragmentViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="@dimen/layout_padding">
+
+        <TextView
+            android:id="@+id/tv_fm_list_user_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/main_go_to_list_user"
+            android:textSize="@dimen/text_title" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_list_user"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/layout_margin"
+            android:adapter="@{listUserViewModel.listUserAdapter}"
+            app:layoutManager="LinearLayoutManager" />
+    </LinearLayout>
+</layout>

@@ -1,7 +1,9 @@
 package com.example.khang.newpro.activity;
 
+import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.databinding.DataBindingUtil;
+import android.support.annotation.Nullable;
 
 import com.example.khang.newpro.R;
 import com.example.khang.newpro.base.BaseActivity;
@@ -50,6 +52,10 @@ public class MainActivity extends BaseActivity {
 
         mainViewModel.getStartVersionDetailActivityEvent().observe(this, aVoid -> {
             mainViewModel.onStartVersionDetailActivity(this);
+        });
+
+        mainViewModel.getStartListUserDetailActivityEvent().observe(this, aVoid -> {
+            mainViewModel.onStartListUserDetailActivity(this);
         });
     }
 }

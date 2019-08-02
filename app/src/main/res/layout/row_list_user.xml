@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="listUserViewModel"
+            type="com.example.khang.newpro.viewmodel.ListUserItemViewModel" />
+
+        <variable
+            name="listUserListener"
+            type="com.example.khang.newpro.listener.RowListUserListener" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/layout_margin">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_row_user_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{listUserViewModel.user.userName}"
+                android:textSize="@dimen/text_title"
+                tools:text="User Name" />
+
+            <TextView
+                android:id="@+id/tv_row_phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/layout_margin"
+                android:text="@{listUserViewModel.user.numberPhone}"
+                android:textSize="@dimen/text_normal"
+                tools:text="Phone" />
+
+            <TextView
+                android:id="@+id/tv_row_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/layout_margin"
+                android:text="@{listUserViewModel.user.address}"
+                android:textSize="@dimen/text_normal"
+                tools:text="Address" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btn_row_delete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{()->listUserListener.onDeleteClick(listUserViewModel.user)}"
+                android:text="@string/item_list_user_delete" />
+
+            <Button
+                android:id="@+id/btn_row_show_all"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{()->listUserListener.onShowAllClick(listUserViewModel.user)}"
+                android:text="@string/item_list_user_show_all" />
+        </LinearLayout>
+
+    </RelativeLayout>
+</layout>

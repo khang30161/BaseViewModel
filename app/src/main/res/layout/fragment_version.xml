@@ -15,12 +15,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="10dp">
+        android:padding="@dimen/layout_padding">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="@dimen/layout_margin"
             android:gravity="center">
 
             <TextView
@@ -28,7 +28,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/version_text"
-                android:textSize="16sp" />
+                android:textSize="@dimen/text_title" />
 
             <TextView
                 android:id="@+id/tv_fm_more_version"
@@ -37,7 +37,7 @@
                 android:layout_toEndOf="@+id/tv_fm_more_version_text"
                 android:gravity="end"
                 android:text="@{versionViewModel.version}"
-                android:textSize="16sp" />
+                android:textSize="@dimen/text_title" />
         </RelativeLayout>
 
     </LinearLayout>

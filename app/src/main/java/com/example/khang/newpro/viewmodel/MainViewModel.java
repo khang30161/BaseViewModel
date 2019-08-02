@@ -18,6 +18,8 @@ public class MainViewModel extends BaseViewModel {
 
     private SingleLiveEvent<Void> mStartVersionDetailActivityEvent = new SingleLiveEvent<>();
 
+    private SingleLiveEvent<Void> mStartListUserDetailActivityEvent = new SingleLiveEvent<>();
+
     public ObservableField<String> tvHello = new ObservableField<>();
 
     public SingleLiveEvent<Void> getChangeTextAndCallActivityEvent() {
@@ -30,6 +32,10 @@ public class MainViewModel extends BaseViewModel {
 
     public SingleLiveEvent<Void> getStartVersionDetailActivityEvent() {
         return mStartVersionDetailActivityEvent;
+    }
+
+    public SingleLiveEvent<Void> getStartListUserDetailActivityEvent() {
+        return mStartListUserDetailActivityEvent;
     }
 
     /**
@@ -62,5 +68,16 @@ public class MainViewModel extends BaseViewModel {
 
     public void onStartVersionDetailActivity(BaseActivity baseActivity) {
         DetailActivityUtils.startDetailActivity(baseActivity, DetailType.VERSION_APP_DETAIL, null, false, null);
+    }
+
+    /**
+     * View (xml) call to ViewModel And Call Event To Main Activity
+     */
+    public void startListUserDetailActivityEvent() {
+        mStartListUserDetailActivityEvent.call();
+    }
+
+    public void onStartListUserDetailActivity(BaseActivity baseActivity) {
+        DetailActivityUtils.startDetailActivity(baseActivity, DetailType.LIST_USER_DETAIL, null, false, null);
     }
 }

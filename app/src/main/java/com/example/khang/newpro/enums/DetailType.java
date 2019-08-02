@@ -3,7 +3,8 @@ package com.example.khang.newpro.enums;
 import android.content.Intent;
 
 public enum DetailType {
-    VERSION_APP_DETAIL;
+    VERSION_APP_DETAIL,
+    LIST_USER_DETAIL;
 
     private static final String name = DetailType.class.getName();
 
