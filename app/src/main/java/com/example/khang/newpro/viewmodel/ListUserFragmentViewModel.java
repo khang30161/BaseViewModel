@@ -3,11 +3,11 @@ package com.example.khang.newpro.viewmodel;
 
 import android.app.Activity;
 import android.os.Handler;
-import android.support.v7.widget.LinearLayoutManager;
 
 import com.example.khang.newpro.adapter.ListUserAdapter;
 import com.example.khang.newpro.base.BaseAdapter;
 import com.example.khang.newpro.base.BaseViewModel;
+import com.example.khang.newpro.base.SingleLiveEvent;
 import com.example.khang.newpro.model.User;
 
 import java.text.DecimalFormat;
@@ -15,12 +15,18 @@ import java.util.Random;
 
 public class ListUserFragmentViewModel extends BaseViewModel {
 
+    private SingleLiveEvent<Void> mEndClearDataEvent = new SingleLiveEvent<>();
+
     private ListUserAdapter listUserAdapter;
     private int currentIndex;
     private boolean isMoreLoading;
 
     public ListUserAdapter getListUserAdapter() {
         return listUserAdapter;
+    }
+
+    public SingleLiveEvent<Void> getEndClearDataEvent() {
+        return mEndClearDataEvent;
     }
 
     public void setUpData(Activity activity) {
@@ -48,11 +54,27 @@ public class ListUserFragmentViewModel extends BaseViewModel {
         }
     }
 
+    /**
+     * Hide Load More After Load Data Done
+     */
     private void hideLoadMore() {
         if (isMoreLoading && listUserAdapter.getItemCount() > 0) {
             listUserAdapter.removeItem(listUserAdapter.getItemCount() - 1);
             isMoreLoading = false;
         }
+    }
+
+    /**
+     * Clear All Data And Call Back To Activity Stop SwipeRefreshLayout
+     */
+    public void refresh() {
+        Handler handler = new Handler();
+        handler.postDelayed(() -> {
+            listUserAdapter.clearAllItems();
+            currentIndex = 0;
+            getListUser();
+            mEndClearDataEvent.call();
+        }, 2000);
     }
 
     /**

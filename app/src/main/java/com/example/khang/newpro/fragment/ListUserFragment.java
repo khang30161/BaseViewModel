@@ -1,5 +1,6 @@
 package com.example.khang.newpro.fragment;
 
+import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -66,6 +67,15 @@ public class ListUserFragment extends BaseFragment {
                                          }
                                      }
                 );
+
+        fragmentListUserBinding.srlListUser.setOnRefreshListener(() -> {
+            fragmentListUserBinding.srlListUser.setRefreshing(true);
+            listUserFragmentViewModel.refresh();
+        });
+
+        listUserFragmentViewModel.getEndClearDataEvent().observe(this, aVoid -> {
+            fragmentListUserBinding.srlListUser.setRefreshing(false);
+        });
 
         listUserFragmentViewModel.getListUser();
     }

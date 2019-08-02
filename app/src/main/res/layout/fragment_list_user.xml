@@ -25,12 +25,19 @@
             android:text="@string/main_go_to_list_user"
             android:textSize="@dimen/text_title" />
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/rv_list_user"
+
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/srl_list_user"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="@dimen/layout_margin"
-            android:adapter="@{listUserViewModel.listUserAdapter}"
-            app:layoutManager="LinearLayoutManager" />
+            android:layout_height="match_parent">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_list_user"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/layout_margin"
+                android:adapter="@{listUserViewModel.listUserAdapter}"
+                app:layoutManager="LinearLayoutManager" />
+        </android.support.v4.widget.SwipeRefreshLayout>
     </LinearLayout>
 </layout>
