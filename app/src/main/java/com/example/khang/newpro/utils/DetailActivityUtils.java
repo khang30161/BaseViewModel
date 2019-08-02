@@ -4,9 +4,9 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.example.khang.newpro.activity.DetailActivity;
-import com.example.khang.newpro.enums.DetailType;
-import com.example.khang.newpro.enums.ExtraKeyType;
+import com.example.khang.newpro.ui.activity.DetailActivity;
+import com.example.khang.newpro.data.enums.DetailType;
+import com.example.khang.newpro.data.enums.ExtraKeyType;
 
 public class DetailActivityUtils {
     public static void startDetailActivity(Activity activity, DetailType detailType, Bundle bundle, boolean isReturnDataToActivity, Integer requestCode) {

@@ -15,4 +15,8 @@
     <!-- Item List User -->
     <string name="item_list_user_delete">Delete</string>
     <string name="item_list_user_show_all">Show All</string>
+
+    <!-- Dialog text -->
+    <string name="dialog_yes">Yes</string>
+    <string name="dialog_no">No</string>
 </resources>

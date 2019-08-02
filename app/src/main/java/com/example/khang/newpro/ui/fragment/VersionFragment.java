@@ -1,4 +1,4 @@
-package com.example.khang.newpro.fragment;
+package com.example.khang.newpro.ui.fragment;
 
 import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 
 import com.example.khang.newpro.base.BaseFragment;
 import com.example.khang.newpro.databinding.FragmentVersionBinding;
-import com.example.khang.newpro.viewmodel.VersionFragmentViewModel;
+import com.example.khang.newpro.viewmodel.fragment.VersionFragmentViewModel;
 
 public class VersionFragment extends BaseFragment {
 

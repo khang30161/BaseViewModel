@@ -1,7 +1,7 @@
-package com.example.khang.newpro.viewmodel;
+package com.example.khang.newpro.viewmodel.adapter.viewmodel;
 
 import com.example.khang.newpro.base.BaseViewModel;
-import com.example.khang.newpro.model.User;
+import com.example.khang.newpro.data.model.User;
 
 public class ListUserItemViewModel extends BaseViewModel {
     private User user;

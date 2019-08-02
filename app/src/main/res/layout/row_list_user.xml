@@ -8,11 +8,11 @@
 
         <variable
             name="listUserViewModel"
-            type="com.example.khang.newpro.viewmodel.ListUserItemViewModel" />
+            type="com.example.khang.newpro.viewmodel.adapter.viewmodel.ListUserItemViewModel" />
 
         <variable
             name="listUserListener"
-            type="com.example.khang.newpro.listener.RowListUserListener" />
+            type="com.example.khang.newpro.data.listener.RowListUserListener" />
     </data>
 
     <RelativeLayout

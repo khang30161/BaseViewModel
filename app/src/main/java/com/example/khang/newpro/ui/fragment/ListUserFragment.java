@@ -1,6 +1,5 @@
-package com.example.khang.newpro.fragment;
+package com.example.khang.newpro.ui.fragment;
 
-import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -13,7 +12,7 @@ import android.view.ViewGroup;
 
 import com.example.khang.newpro.base.BaseFragment;
 import com.example.khang.newpro.databinding.FragmentListUserBinding;
-import com.example.khang.newpro.viewmodel.ListUserFragmentViewModel;
+import com.example.khang.newpro.viewmodel.fragment.ListUserFragmentViewModel;
 
 public class ListUserFragment extends BaseFragment {
 
@@ -55,7 +54,7 @@ public class ListUserFragment extends BaseFragment {
 
     @Override
     protected void setupData() {
-        listUserFragmentViewModel.setUpData(getActivity());
+        listUserFragmentViewModel.setUpData(getActivity(), getFragmentManager());
 
         fragmentListUserBinding.rvListUser
                 .addOnScrollListener(new RecyclerView.OnScrollListener() {

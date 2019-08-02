@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="messageDialogViewModel"
+            type="com.example.khang.newpro.viewmodel.dialog.MessageDialogViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_border_circle_fill_white">
+
+        <TextView
+            android:id="@+id/tv_dialog_message_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/layout_margin"
+            android:text="@{messageDialogViewModel.title}"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_title"
+            android:visibility="@{messageDialogViewModel.isShowTitle?View.VISIBLE:View.GONE}"
+            tools:text="Title" />
+
+        <TextView
+            android:id="@+id/tv_dialog_message_msg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_dialog_message_title"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="@dimen/layout_margin"
+            android:gravity="center"
+            android:text="@{messageDialogViewModel.message}"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_normal"
+            tools:text="Message" />
+
+        <View
+            android:id="@+id/line_dialog"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/line_horizontal"
+            android:layout_below="@+id/tv_dialog_message_msg"
+            android:layout_marginTop="@dimen/layout_margin"
+            android:background="@color/black" />
+
+        <LinearLayout
+            android:id="@+id/ll_dialog_message_action_button"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/btn_dialog_height"
+            android:layout_below="@+id/line_dialog"
+            android:background="@color/black"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/mrl_dialog_message_positive_action_button"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="@dimen/line_vertical"
+                android:layout_weight="1"
+                android:background="@color/white"
+                android:onClick="@{()->messageDialogViewModel.onPositiveEvent()}"
+                android:text="@{messageDialogViewModel.positiveText}"
+                android:textAllCaps="false"
+                tools:text="No" />
+
+            <Button
+                android:id="@+id/mrl_dialog_message_negative_action_button"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/line_vertical"
+                android:layout_weight="1"
+                android:background="@color/white"
+                android:onClick="@{()->messageDialogViewModel.onNegativeEvent()}"
+                android:text="@{messageDialogViewModel.negativeText}"
+                android:textAllCaps="false"
+                tools:text="Yes" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</layout>

@@ -1,4 +1,4 @@
-package com.example.khang.newpro.viewmodel;
+package com.example.khang.newpro.viewmodel.fragment;
 
 import android.databinding.ObservableField;
 

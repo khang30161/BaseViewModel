@@ -8,7 +8,7 @@
 
         <variable
             name="versionViewModel"
-            type="com.example.khang.newpro.viewmodel.VersionFragmentViewModel" />
+            type="com.example.khang.newpro.viewmodel.fragment.VersionFragmentViewModel" />
     </data>
 
     <LinearLayout

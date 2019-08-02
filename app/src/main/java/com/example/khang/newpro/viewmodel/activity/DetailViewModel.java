@@ -1,4 +1,4 @@
-package com.example.khang.newpro.viewmodel;
+package com.example.khang.newpro.viewmodel.activity;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
@@ -6,10 +6,10 @@ import android.support.v4.app.FragmentTransaction;
 import com.example.khang.newpro.R;
 import com.example.khang.newpro.base.BaseActivity;
 import com.example.khang.newpro.base.BaseViewModel;
-import com.example.khang.newpro.enums.DetailType;
-import com.example.khang.newpro.enums.ExtraKeyType;
-import com.example.khang.newpro.fragment.ListUserFragment;
-import com.example.khang.newpro.fragment.VersionFragment;
+import com.example.khang.newpro.data.enums.DetailType;
+import com.example.khang.newpro.data.enums.ExtraKeyType;
+import com.example.khang.newpro.ui.fragment.ListUserFragment;
+import com.example.khang.newpro.ui.fragment.VersionFragment;
 
 public class DetailViewModel extends BaseViewModel {
 

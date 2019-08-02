@@ -7,16 +7,15 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.example.khang.newpro.R;
 import com.example.khang.newpro.adapter.viewholder.BindingViewHolder;
 import com.example.khang.newpro.adapter.viewholder.EmptyViewHolder;
 import com.example.khang.newpro.base.BaseAdapter;
+import com.example.khang.newpro.data.listener.RowListUserListener;
+import com.example.khang.newpro.data.model.User;
 import com.example.khang.newpro.databinding.RowListUserBinding;
-import com.example.khang.newpro.listener.RowListUserListener;
-import com.example.khang.newpro.model.User;
-import com.example.khang.newpro.viewmodel.ListUserItemViewModel;
+import com.example.khang.newpro.viewmodel.adapter.viewmodel.ListUserItemViewModel;
 
 public class ListUserAdapter extends BaseAdapter {
 
@@ -25,8 +24,11 @@ public class ListUserAdapter extends BaseAdapter {
     private static final int VIEW_TYPE_LOAD_MORE = 0;
     private static final int VIEW_TYPE_ITEM = 1;
 
-    public ListUserAdapter(Context context, OnItemClickListener onItemClickListener) {
+    private RowListUserListener rowListUserListener;
+
+    public ListUserAdapter(Context context, OnItemClickListener onItemClickListener, RowListUserListener rowListUserListener) {
         super(context, onItemClickListener);
+        this.rowListUserListener = rowListUserListener;
     }
 
     @NonNull
@@ -61,20 +63,9 @@ public class ListUserAdapter extends BaseAdapter {
             return;
         }
         ListUserItemViewModel itemViewModel = new ListUserItemViewModel(user);
-        RowListUserListener listener = new RowListUserListener() {
-            @Override
-            public void onDeleteClick(User user) {
-                Toast.makeText(context, "Delete User: " + user.getUserId(), Toast.LENGTH_LONG).show();
-            }
-
-            @Override
-            public void onShowAllClick(User user) {
-                Toast.makeText(context, "Show All User: " + user.getUserId(), Toast.LENGTH_LONG).show();
-            }
-        };
 
         binding.setListUserViewModel(itemViewModel);
-        binding.setListUserListener(listener);
+        binding.setListUserListener(rowListUserListener);
     }
 
     @Override

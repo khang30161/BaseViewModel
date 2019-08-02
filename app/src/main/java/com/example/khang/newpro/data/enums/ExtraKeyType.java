@@ -1,4 +1,4 @@
-package com.example.khang.newpro.enums;
+package com.example.khang.newpro.data.enums;
 
 public enum ExtraKeyType {
 

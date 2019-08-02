@@ -1,13 +1,11 @@
-package com.example.khang.newpro.viewmodel;
+package com.example.khang.newpro.viewmodel.activity;
 
-import android.content.Intent;
 import android.databinding.ObservableField;
 
-import com.example.khang.newpro.activity.DetailActivity;
 import com.example.khang.newpro.base.BaseActivity;
 import com.example.khang.newpro.base.BaseViewModel;
 import com.example.khang.newpro.base.SingleLiveEvent;
-import com.example.khang.newpro.enums.DetailType;
+import com.example.khang.newpro.data.enums.DetailType;
 import com.example.khang.newpro.utils.DetailActivityUtils;
 
 public class MainViewModel extends BaseViewModel {

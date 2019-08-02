@@ -1,4 +1,4 @@
-package com.example.khang.newpro.model;
+package com.example.khang.newpro.data.model;
 
 public class User {
 

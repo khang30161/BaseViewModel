@@ -1,6 +1,6 @@
-package com.example.khang.newpro.listener;
+package com.example.khang.newpro.data.listener;
 
-import com.example.khang.newpro.model.User;
+import com.example.khang.newpro.data.model.User;
 
 public interface RowListUserListener {
     void onDeleteClick(User user);

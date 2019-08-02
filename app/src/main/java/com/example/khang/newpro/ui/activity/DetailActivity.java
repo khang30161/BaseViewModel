@@ -1,4 +1,4 @@
-package com.example.khang.newpro.activity;
+package com.example.khang.newpro.ui.activity;
 
 import android.arch.lifecycle.ViewModelProviders;
 import android.databinding.DataBindingUtil;
@@ -6,7 +6,7 @@ import android.databinding.DataBindingUtil;
 import com.example.khang.newpro.R;
 import com.example.khang.newpro.base.BaseActivity;
 import com.example.khang.newpro.databinding.ActivityDetailBinding;
-import com.example.khang.newpro.viewmodel.DetailViewModel;
+import com.example.khang.newpro.viewmodel.activity.DetailViewModel;
 
 public class DetailActivity extends BaseActivity {
 

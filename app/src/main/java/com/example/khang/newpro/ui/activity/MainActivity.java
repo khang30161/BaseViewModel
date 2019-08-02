@@ -1,14 +1,12 @@
-package com.example.khang.newpro.activity;
+package com.example.khang.newpro.ui.activity;
 
-import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.databinding.DataBindingUtil;
-import android.support.annotation.Nullable;
 
 import com.example.khang.newpro.R;
 import com.example.khang.newpro.base.BaseActivity;
 import com.example.khang.newpro.databinding.ActivityMainBinding;
-import com.example.khang.newpro.viewmodel.MainViewModel;
+import com.example.khang.newpro.viewmodel.activity.MainViewModel;
 
 public class MainActivity extends BaseActivity {
 

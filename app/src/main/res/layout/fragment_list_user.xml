@@ -9,7 +9,7 @@
 
         <variable
             name="listUserViewModel"
-            type="com.example.khang.newpro.viewmodel.ListUserFragmentViewModel" />
+            type="com.example.khang.newpro.viewmodel.fragment.ListUserFragmentViewModel" />
     </data>
 
     <LinearLayout
