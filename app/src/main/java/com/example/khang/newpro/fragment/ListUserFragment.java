@@ -4,10 +4,11 @@ import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.example.khang.newpro.base.BaseFragment;
 import com.example.khang.newpro.databinding.FragmentListUserBinding;
@@ -54,13 +55,18 @@ public class ListUserFragment extends BaseFragment {
     @Override
     protected void setupData() {
         listUserFragmentViewModel.setUpData(getActivity());
+
+        fragmentListUserBinding.rvListUser
+                .addOnScrollListener(new RecyclerView.OnScrollListener() {
+                                         @Override
+                                         public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+                                             super.onScrolled(recyclerView, dx, dy);
+                                             LinearLayoutManager linearLayoutManager = (LinearLayoutManager) fragmentListUserBinding.rvListUser.getLayoutManager();
+                                             listUserFragmentViewModel.checkLoadMoreData(dy, linearLayoutManager.findLastCompletelyVisibleItemPosition());
+                                         }
+                                     }
+                );
+
         listUserFragmentViewModel.getListUser();
-        fragmentListUserBinding.tvFmListUserTitle.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getActivity(), "asdasd", Toast.LENGTH_LONG).show();
-                listUserFragmentViewModel.getListUserAdapter().notifyDataSetChanged();
-            }
-        });
     }
 }

@@ -2,6 +2,8 @@ package com.example.khang.newpro.viewmodel;
 
 
 import android.app.Activity;
+import android.os.Handler;
+import android.support.v7.widget.LinearLayoutManager;
 
 import com.example.khang.newpro.adapter.ListUserAdapter;
 import com.example.khang.newpro.base.BaseAdapter;
@@ -14,6 +16,8 @@ import java.util.Random;
 public class ListUserFragmentViewModel extends BaseViewModel {
 
     private ListUserAdapter listUserAdapter;
+    private int currentIndex;
+    private boolean isMoreLoading;
 
     public ListUserAdapter getListUserAdapter() {
         return listUserAdapter;
@@ -27,11 +31,36 @@ public class ListUserFragmentViewModel extends BaseViewModel {
         });
     }
 
+    public void checkLoadMoreData(int dy, int lastCompletelyVisibleItemPosition) {
+        if (dy > 0) {
+            if (!isMoreLoading) {
+                if (lastCompletelyVisibleItemPosition == listUserAdapter.getItemCount() - 1) {
+                    //bottom of list!
+                    listUserAdapter.addItem(null);
+                    isMoreLoading = true;
+
+                    //Add dummy data and delay 2s
+                    currentIndex += 30;
+                    Handler handler = new Handler();
+                    handler.postDelayed(() -> getListUser(), 2000);
+                }
+            }
+        }
+    }
+
+    private void hideLoadMore() {
+        if (isMoreLoading && listUserAdapter.getItemCount() > 0) {
+            listUserAdapter.removeItem(listUserAdapter.getItemCount() - 1);
+            isMoreLoading = false;
+        }
+    }
+
     /**
      * Dummy 30 data
      */
     public void getListUser() {
-        for (int index = 0; index < 30; index++) {
+        hideLoadMore();
+        for (int index = currentIndex; index < currentIndex + 30; index++) {
             String indexString = getNumberWithFormat(index);
             String userId = "Id" + indexString;
             String userName = "Name " + indexString;
