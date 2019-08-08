@@ -2,6 +2,7 @@ package com.example.khang.newpro.viewmodel.fragment;
 
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.Handler;
 import android.support.v4.app.FragmentManager;
 import android.widget.Toast;
@@ -14,6 +15,7 @@ import com.example.khang.newpro.base.SingleLiveEvent;
 import com.example.khang.newpro.data.builder.BuilderMessageDialog;
 import com.example.khang.newpro.data.listener.RowListUserListener;
 import com.example.khang.newpro.data.model.User;
+import com.example.khang.newpro.utils.DialogUtils;
 
 import java.text.DecimalFormat;
 import java.util.Random;
@@ -101,6 +103,7 @@ public class ListUserFragmentViewModel extends BaseViewModel {
      * Hide Load More After Load Data Done
      */
     private void hideLoadMore() {
+        DialogUtils.hideLoadingProgress();
         if (isMoreLoading && listUserAdapter.getItemCount() > 0) {
             listUserAdapter.removeItem(listUserAdapter.getItemCount() - 1);
             isMoreLoading = false;
@@ -110,8 +113,9 @@ public class ListUserFragmentViewModel extends BaseViewModel {
     /**
      * Clear All Data And Call Back To Activity Stop SwipeRefreshLayout
      */
-    public void refresh() {
+    public void refresh(Context context) {
         Handler handler = new Handler();
+        DialogUtils.showLoadingProgress(context, false);
         handler.postDelayed(() -> {
             listUserAdapter.clearAllItems();
             currentIndex = 0;

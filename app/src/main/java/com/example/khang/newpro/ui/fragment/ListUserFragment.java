@@ -62,7 +62,7 @@ public class ListUserFragment extends BaseFragment {
                                          public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
                                              super.onScrolled(recyclerView, dx, dy);
                                              LinearLayoutManager linearLayoutManager = (LinearLayoutManager) fragmentListUserBinding.rvListUser.getLayoutManager();
-                                             listUserFragmentViewModel.checkLoadMoreData(getActivity(), dy, linearLayoutManager.findLastCompletelyVisibleItemPosition());
+                                             listUserFragmentViewModel.checkLoadMoreData(dy, linearLayoutManager.findLastCompletelyVisibleItemPosition());
                                          }
                                      }
                 );
